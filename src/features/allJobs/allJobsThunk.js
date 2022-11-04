@@ -22,6 +22,7 @@ export const showStatsThunk = async (_, thunkAPI) => {
 
     return resp.data;
   } catch (error) {
-    return checkForUnauthorizedResponse(error, thunkAPI);
+    // return checkForUnauthorizedResponse(error, thunkAPI);
+    return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
